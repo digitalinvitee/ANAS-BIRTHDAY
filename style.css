@@ -1,0 +1,1218 @@
+/* ==========================================
+   CUSTOM FONT — GL KUPIURA
+========================================== */
+
+@font-face {
+  font-family: 'GL Kupiura';
+  src: url('gl-kupiura-medium-37268379451.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ==========================================
+   ROOT
+========================================== */
+
+:root {
+  --ink: #2d211b;
+  --rose: #b84068;
+  --gold: #a66f27;
+  --paper: #f5e6cf;
+  --line: rgba(93, 62, 39, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'GL Kupiura', serif;
+  font-weight: 500;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   PAGES
+========================================== */
+
+.page {
+  height: 100svh;
+  min-height: 640px;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-size: cover;
+  background-position: center;
+}
+
+.p1 {
+  background-image: url('cover.jpeg');
+}
+
+.p2 {
+  background-image: url('program.png');
+}
+
+.p3 {
+  background-image: url('recomendations.png');
+}
+
+.p4 {
+  background-image: url('rsvp.png');
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 236, 0.05),
+    transparent 22%,
+    transparent 80%,
+    rgba(83, 47, 22, 0.04)
+  );
+}
+
+
+/* ==========================================
+   GENERAL TYPOGRAPHY
+========================================== */
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 11px;
+}
+
+.title {
+  font-family: 'GL Kupiura', serif;
+  font-size: clamp(29px, 7.4vw, 40px);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--rose);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.rule {
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+  margin: 14px 0 24px;
+}
+
+
+/* ==========================================
+   COVER
+========================================== */
+
+.cover-hint {
+  position: absolute;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 4;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(53, 35, 26, 0.58);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.cover-hint i {
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: rgba(53, 35, 26, 0.4);
+  animation: drop 1.8s ease-in-out infinite;
+}
+
+@keyframes drop {
+  50% {
+    transform: translateY(5px);
+    opacity: 0.35;
+  }
+}
+
+
+/* ==========================================
+   PROGRAM
+========================================== */
+
+.program-copy {
+  position: absolute;
+  z-index: 3;
+
+  left: 42%;
+  right: 4.5%;
+  top: 5.2%;
+  bottom: 3.5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  padding-top: 2vh;
+}
+
+.program-copy .eyebrow {
+  margin-bottom: 7px;
+}
+
+.program-copy .title {
+  font-family: 'GL Kupiura', serif;
+  font-size: clamp(31px, 8vw, 42px);
+}
+
+.program-copy .rule {
+  margin: 11px 0 22px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.25vh, 21px);
+}
+
+.event {
+  position: relative;
+  padding-left: 17px;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+  background: var(--gold);
+
+  box-shadow: 0 0 0 3px rgba(166, 111, 39, 0.08);
+}
+
+.event time {
+  display: block;
+  margin-bottom: 4px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+
+  color: var(--rose);
+}
+
+.event p {
+  margin: 0;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 13.2px;
+  line-height: 1.5;
+  font-weight: 500;
+
+  text-wrap: pretty;
+}
+
+
+/* ==========================================
+   RECOMMENDATIONS
+========================================== */
+
+.rec-copy {
+  position: absolute;
+  z-index: 3;
+
+  left: 13%;
+  right: 13%;
+  top: 12%;
+  bottom: 9%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.rec-copy .rule {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recs {
+  width: min(100%, 330px);
+}
+
+.rec {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rec:last-child {
+  border-bottom: 0;
+}
+
+.rec-kicker {
+  margin-bottom: 5px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+
+  color: var(--gold);
+}
+
+.rec h3 {
+  margin: 0 0 5px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+
+  color: var(--rose);
+}
+
+.rec p {
+  margin: 0;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.mood {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+
+/* ==========================================
+   RSVP
+========================================== */
+
+.rsvp-copy {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 28px 28px 34px;
+}
+
+.rsvp-shell {
+  width: min(100%, 354px);
+  text-align: center;
+}
+
+.rsvp-card {
+  position: relative;
+
+  width: 100%;
+  padding: 28px 27px 24px;
+
+  border: 1px solid rgba(166, 111, 39, 0.24);
+  border-radius: 30px;
+
+  background: linear-gradient(
+    155deg,
+    rgba(255, 249, 239, 0.82),
+    rgba(246, 231, 209, 0.68)
+  );
+
+  box-shadow:
+    0 18px 50px rgba(77, 49, 31, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rsvp-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 24px;
+
+  pointer-events: none;
+}
+
+.rsvp-top {
+  position: relative;
+}
+
+.rsvp-kicker {
+  margin-bottom: 8px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7.5px;
+  font-weight: 500;
+  letter-spacing: 0.29em;
+  text-transform: uppercase;
+
+  color: var(--gold);
+  opacity: 0.9;
+}
+
+.rsvp-shell .title {
+  margin: 0 auto;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: clamp(25px, 6.6vw, 31px);
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 0;
+
+  color: var(--rose);
+}
+
+
+/* ==========================================
+   RSVP ORNAMENT
+========================================== */
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 13px auto 19px;
+
+  color: var(--gold);
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(166, 111, 39, 0.28)
+  );
+}
+
+.ornament::after {
+  background: linear-gradient(
+    90deg,
+    rgba(166, 111, 39, 0.28),
+    transparent
+  );
+}
+
+.ornament span {
+  font-size: 7px;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.field {
+  margin: 0 0 19px;
+  text-align: left;
+}
+
+.field label {
+  display: block;
+
+  margin: 0 0 6px 3px;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  color: #765948;
+}
+
+.field input {
+  width: 100%;
+  height: 38px;
+
+  padding: 0 11px;
+
+  border: 1px solid rgba(112, 77, 53, 0.18);
+  border-radius: 12px;
+
+  outline: 0;
+
+  background: rgba(255, 252, 246, 0.45);
+  color: var(--ink);
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: 0.25s ease;
+}
+
+.field input:focus {
+  border-color: rgba(184, 64, 104, 0.42);
+
+  background: rgba(255, 252, 246, 0.66);
+
+  box-shadow: 0 0 0 3px rgba(184, 64, 104, 0.05);
+}
+
+.answer-label {
+  margin: 0 0 9px;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 10.5px;
+  font-weight: 500;
+
+  color: #765948;
+}
+
+
+/* ==========================================
+   ATTENDANCE OPTIONS
+========================================== */
+
+.attendance {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+
+  margin: 0 0 17px;
+}
+
+.choice {
+  position: relative;
+  display: block;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choice span {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  min-height: 40px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(118, 83, 57, 0.16);
+  border-radius: 13px;
+
+  background: rgba(255, 250, 242, 0.36);
+  color: #4d392f;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.24s ease;
+}
+
+.choice span i {
+  position: relative;
+  display: block;
+  flex: 0 0 13px;
+
+  width: 13px;
+  height: 13px;
+
+  margin-right: 10px;
+
+  border: 1px solid rgba(166, 111, 39, 0.56);
+  border-radius: 50%;
+
+  transition: 0.24s ease;
+}
+
+.choice span i::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+
+  border-radius: 50%;
+  background: var(--rose);
+
+  transform: scale(0);
+
+  transition: transform 0.2s ease;
+}
+
+.choice input:checked + span {
+  color: var(--rose);
+
+  border-color: rgba(184, 64, 104, 0.28);
+
+  background: rgba(255, 239, 241, 0.52);
+
+  box-shadow: 0 5px 16px rgba(184, 64, 104, 0.055);
+}
+
+.choice input:checked + span i {
+  border-color: var(--rose);
+}
+
+.choice input:checked + span i::after {
+  transform: scale(1);
+}
+
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-width: 166px;
+  height: 39px;
+
+  padding: 0 20px;
+
+  border: 1px solid rgba(184, 64, 104, 0.32);
+  border-radius: 999px;
+
+  background: rgba(184, 64, 104, 0.08);
+  color: var(--rose);
+
+  box-shadow: none;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 11px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.submit:hover {
+  background: var(--rose);
+  color: #ffffff;
+  border-color: var(--rose);
+
+  box-shadow: 0 8px 20px rgba(184, 64, 104, 0.14);
+}
+
+.submit:active {
+  transform: scale(0.985);
+}
+
+.submit:disabled {
+  cursor: default;
+}
+
+
+/* ==========================================
+   LOCATION
+========================================== */
+
+.card-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 20px 0 15px;
+
+  color: rgba(166, 111, 39, 0.7);
+}
+
+.card-divider::before,
+.card-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+
+  background: rgba(166, 111, 39, 0.16);
+}
+
+.card-divider span {
+  font-size: 6px;
+}
+
+.location {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.location .loc-label {
+  margin-bottom: 6px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.31em;
+  text-transform: uppercase;
+
+  color: var(--gold);
+}
+
+.location strong {
+  display: block;
+
+  margin: 0 0 3px;
+
+  color: var(--rose);
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.location p {
+  margin: 0 0 7px;
+
+  font-family: 'GL Kupiura', serif;
+  color: #60493d;
+
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.map {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 2px 0 3px;
+
+  color: #795a36;
+
+  text-decoration: none;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 10px;
+
+  border-bottom: 1px solid rgba(166, 111, 39, 0.27);
+
+  transition: 0.2s ease;
+}
+
+.map:hover {
+  color: var(--rose);
+
+  border-bottom-color: rgba(184, 64, 104, 0.35);
+}
+
+
+/* ==========================================
+   PAGE NAVIGATION
+========================================== */
+
+.pager {
+  position: fixed;
+
+  right: 11px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  opacity: 0.72;
+}
+
+.pager a {
+  display: block;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(65, 42, 30, 0.25);
+
+  transition: 0.25s;
+}
+
+.pager a.active {
+  height: 18px;
+
+  border-radius: 8px;
+
+  background: rgba(65, 42, 30, 0.7);
+}
+
+
+/* ==========================================
+   REVEAL
+========================================== */
+
+.reveal {
+  opacity: 0;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease;
+}
+
+.page.in-view .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.page.in-view .reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+
+/* ==========================================
+   ENVELOPE
+========================================== */
+
+.envelope-intro {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  background: #bda98c;
+
+  transition:
+    opacity 0.38s ease,
+    visibility 0.38s ease;
+}
+
+.envelope-intro.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.envelope-stage {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+
+  background: #bda98c;
+}
+
+.env-card {
+  position: relative;
+
+  width: min(94vw, 980px);
+
+  aspect-ratio: 3 / 2;
+
+  filter: drop-shadow(
+    0 22px 24px rgba(70, 43, 24, 0.24)
+  );
+
+  cursor: pointer;
+
+  transition: transform 0.18s ease;
+}
+
+.env-card:active {
+  transform: scale(0.985);
+}
+
+.env-base,
+.env-flap {
+  position: absolute;
+  inset: 0;
+
+  background-image: url('envelope-new.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.env-base {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.env-flap,
+.env-seal-visual {
+  display: none !important;
+}
+
+.seal-hotspot {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(94vw, 980px);
+  height: auto;
+
+  aspect-ratio: 3 / 2;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  display: grid;
+  place-items: center;
+
+  z-index: 8;
+}
+
+.seal-hotspot::before {
+  display: none;
+}
+
+.seal-hotspot span {
+  opacity: 0;
+}
+
+.open-note {
+  position: absolute;
+
+  left: 50%;
+  top: calc(50% + min(31vw, 205px));
+
+  transform: translateX(-50%);
+
+  z-index: 9;
+
+  padding: 10px 14px;
+
+  white-space: nowrap;
+
+  font-family: 'GL Kupiura', serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+
+  color: rgba(72, 44, 32, 0.72);
+}
+
+
+/* ==========================================
+   MUSIC BUTTON
+========================================== */
+
+.music-control {
+  position: fixed;
+
+  left: 16px;
+  bottom: max(18px, env(safe-area-inset-bottom));
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  opacity: 1;
+}
+
+.music-control button {
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(166, 111, 39, 0.35);
+  border-radius: 50%;
+
+  background: rgba(255, 248, 238, 0.9);
+
+  color: var(--gold);
+
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 5px 18px rgba(73, 46, 28, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.music-control > span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: rgba(54, 36, 27, 0.58);
+}
+
+.music-control button:hover {
+  transform: scale(1.06);
+
+  color: var(--rose);
+
+  border-color: rgba(184, 64, 104, 0.4);
+}
+
+.music-control button:active {
+  transform: scale(0.94);
+}
+
+.music-control.playing button {
+  background: var(--rose);
+  color: #ffffff;
+  border-color: var(--rose);
+
+  box-shadow: 0 6px 20px rgba(184, 64, 104, 0.20);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 390px) {
+
+  .program-copy {
+    left: 40.5%;
+    right: 3.5%;
+    top: 4.5%;
+  }
+
+  .program-copy .title {
+    font-size: 30px;
+  }
+
+  .program-copy .rule {
+    margin-bottom: 18px;
+  }
+
+  .timeline {
+    gap: 13px;
+  }
+
+  .event {
+    padding-left: 14px;
+  }
+
+  .event p {
+    font-size: 12px;
+    line-height: 1.42;
+  }
+
+  .event time {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .rule {
+    margin-bottom: 17px;
+  }
+
+  .rec-copy {
+    top: 11%;
+    left: 10%;
+    right: 10%;
+  }
+
+  .rec {
+    padding: 14px 0;
+  }
+
+  .rec p {
+    font-size: 11.5px;
+  }
+
+
+  /* RSVP */
+
+  .rsvp-copy {
+    padding: 22px 23px 28px;
+  }
+
+  .rsvp-card {
+    padding: 23px 22px 20px;
+    border-radius: 27px;
+  }
+
+  .rsvp-card::before {
+    border-radius: 21px;
+  }
+
+  .rsvp-shell .title {
+    font-size: 25px;
+  }
+
+  .ornament {
+    margin: 11px auto 16px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field input {
+    height: 36px;
+  }
+
+  .choice span {
+    min-height: 37px;
+    font-size: 10.5px;
+  }
+
+  .attendance {
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .submit {
+    height: 37px;
+  }
+
+  .card-divider {
+    margin: 16px 0 12px;
+  }
+
+
+  /* MUSIC */
+
+  .music-control {
+    left: 13px;
+    bottom: max(
+      14px,
+      env(safe-area-inset-bottom)
+    );
+  }
+
+  .music-control button {
+    width: 38px;
+    height: 38px;
+
+    font-size: 18px;
+  }
+}
+
+
+/* ==========================================
+   ENVELOPE MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+
+  .env-card {
+    width: 94vw;
+    aspect-ratio: 3 / 2;
+  }
+
+  .seal-hotspot {
+    top: 50%;
+
+    width: 94vw;
+    height: auto;
+
+    aspect-ratio: 3 / 2;
+  }
+
+  .open-note {
+    top: calc(50% + 34vw);
+    font-size: 11px;
+  }
+}
+
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media (min-width: 700px) {
+
+  body {
+    max-width: 430px;
+    margin: auto;
+
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.12);
+  }
+
+  .pager {
+    right: calc(50% - 205px);
+  }
+}
